@@ -80,7 +80,11 @@
 }
 
 
-
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 1rem 0;
+}
 
 
 
@@ -136,6 +140,12 @@
     height: 90px;
 
 
+}
+
+.pokemon:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .pagination {
