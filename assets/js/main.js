@@ -59,7 +59,7 @@ function abrirModal (id) {
     pokeAPI.getPokemonById(id).then(pokemon => {
         document.getElementById('modal-name').innerHTML = pokemon.name
         document.getElementById('modal-number').innerHTML = pokemon.number
-        document.getElementById('modal-type').innerHTML = pokemon.types
+        document.getElementById('modal-type').innerHTML = pokemon.types.map((type) => `<span class="type ${type}">${type}</span>`).join('')
         document.getElementById('modal-image').src = pokemon.photo
         document.getElementById('modal-description').innerHTML = pokemon.description
         document.getElementById('modal').style.display = 'flex'

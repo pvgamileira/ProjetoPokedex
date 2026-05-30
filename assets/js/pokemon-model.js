@@ -4,7 +4,7 @@ class Pokemon {
     number;
     name;
     type;
-    type = [];
+    types = [];
     photo;
     description; 
     
