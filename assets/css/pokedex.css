@@ -183,3 +183,160 @@ h1 {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
+
+/* ====== ANIMAÇÕES AVANÇADAS ====== */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ====== LAYOUT DE DUAS COLUNAS (FLEXBOX) ====== */
+/* ====== FUNDO DO MODAL (GLASSMORPHISM) ====== */
+.main__card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    /* justify-content e align-items centralizam a janela no meio da tela */
+    justify-content: center;
+    align-items: center;
+}
+
+.split__layout {
+    display: flex;
+    flex-direction: row; /* Coloca os itens lado a lado */
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+    padding: 2.5rem;
+    border-radius: 2rem;
+    min-width: 600px; /* Janela mais larga para caber tudo */
+    max-width: 800px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para o botão de fechar ficar absoluto a ele */
+    animation: fadeInScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* --- Lado Esquerdo --- */
+.modal__left {
+    flex: 1; /* Ocupa metade do espaço */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px dashed #eee; /* Linha divisória charmosa */
+    padding-right: 2rem;
+}
+
+.modal__left img {
+    width: 220px;
+    height: 220px;
+    filter: drop-shadow(0px 15px 15px rgba(0,0,0,0.4));
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 1.5rem;
+}
+
+.modal__badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* O estilo base das pílulas de tipo que vamos injetar com JS */
+.modal__badges span {
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --- Lado Direito --- */
+.modal__right {
+    flex: 1.5; /* Ocupa um pouco mais de espaço que a imagem */
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.modal__header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1rem;
+}
+
+#modal-name {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: capitalize;
+    font-family: 'Jersey 20', sans-serif; /* Usando aquela fonte legal que vc importou */
+    letter-spacing: 2px;
+}
+
+#modal-number {
+    font-size: 1.5rem;
+    color: #a0a0a0;
+    font-weight: 900;
+}
+
+.modal__details h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#modal-description {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* --- Botão de Fechar Redesenhado --- */
+.close__button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: #f1f2f6;
+    color: #ff4757;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Faz um círculo perfeito */
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close__button:hover {
+    background-color: #ff4757;
+    color: white;
+    transform: scale(1.1);
+}

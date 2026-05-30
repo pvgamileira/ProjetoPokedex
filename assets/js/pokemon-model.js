@@ -6,7 +6,7 @@ class Pokemon {
     type;
     type = [];
     photo;
-
+    description; 
     
 
 }

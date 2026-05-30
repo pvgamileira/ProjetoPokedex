@@ -9,7 +9,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-            <li class="pokemon ${pokemon.type}" onclick = "abrirModal(${pokemon.number})"
+            <li class="pokemon ${pokemon.type}" onclick = "abrirModal(${pokemon.number})">
                 <span class="number">${'#' + pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
 
@@ -55,3 +55,18 @@ loadMoreButton.addEventListener('click', () => {
 
 })
 
+function abrirModal (id) {
+    pokeAPI.getPokemonById(id).then(pokemon => {
+        document.getElementById('modal-name').innerHTML = pokemon.name
+        document.getElementById('modal-number').innerHTML = pokemon.number
+        document.getElementById('modal-type').innerHTML = pokemon.types
+        document.getElementById('modal-image').src = pokemon.photo
+        document.getElementById('modal-description').innerHTML = pokemon.description
+        document.getElementById('modal').style.display = 'flex'
+        console.log(pokemon)
+    })
+}
+
+document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('modal').style.display = 'none'
+});

@@ -44,11 +44,28 @@
 
     </section>
     <div id="modal" class="main__card" style="display: none;">
-        <div class="card__content">
-            <h2 id="modal-name"></h2>
-            <h3 id="modal-number"></h3>
-            <img src="" alt="" id="modal-image">
-            <button id="closeModal" class="close__button">Fechar</button>
+        <div class="card__content split__layout">
+
+            <div class="modal__left">
+                <img id="modal-image" src="" alt="Imagem do Pokemon">
+                <div id="modal-type" class="modal__badges">
+                </div>
+            </div>
+
+            <div class="modal__right">
+                <div class="modal__header">
+                    <h2 id="modal-name"></h2>
+                    <span id="modal-number"></span>
+                </div>
+
+                <div class="modal__details">
+                    <h3>Sobre</h3>
+                    <p id="modal-description">Carregando informações da Pokédex...</p>
+
+                </div>
+            </div>
+
+            <button id="closeModal" class="close__button">X</button>
         </div>
     </div>
 
